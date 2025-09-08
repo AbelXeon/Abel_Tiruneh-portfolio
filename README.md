@@ -46,3 +46,60 @@ This portfolio was built using a combination of foundational web technologies an
 ## 📂 File Structure
 
 The project is organized into two primary files for simplicity:
+
+├── 📄 index.html # The main landing page
+├── 📄 projects.html # The dedicated page for all projects
+└── 🖼️ README.md # This file!
+
+
+## ⚙️ Getting Started
+
+No complex setup is required to run this project locally.
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/[YOUR_USERNAME]/[YOUR_REPOSITORY_NAME].git
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd [YOUR_REPOSITORY_NAME]
+    ```
+3.  **Open `index.html` in your browser:**
+    Simply double-click the `index.html` file, or right-click and choose "Open with" your favorite browser.
+
+---
+
+## ✏️ Customization
+
+This portfolio is designed to be easily customized.
+
+### 1. Personal Information (`index.html`)
+
+All personal details (name, "About Me" text, skills, contact info) can be edited directly in the HTML of the `index.html` file.
+
+### 2. Adding Projects (`projects.html`)
+
+Adding new projects is simple, thanks to the JavaScript array at the bottom of `projects.html`.
+
+1.  Open `projects.html` and scroll down to the `<script>` tag.
+2.  Find the `allProjects` array.
+3.  Copy an existing project block (from `{` to `},`) and paste it into the array.
+4.  Update the details: `category`, `image`, `title`, `description`, `tech`, `liveLink`, and `sourceLink`.
+
+**Example:**
+
+```javascript
+const allProjects = [
+    // ... existing projects
+    
+    // To add a new project, copy this block:
+    {
+        category: 'web', // or 'game'
+        image: 'https://your-new-project-image-url.com/image.png',
+        title: 'My New Awesome App',
+        description: 'A description of this fantastic new project.',
+        tech: ['Tech1', 'Tech2'],
+        liveLink: '#',
+        sourceLink: '#'
+    }
+];
