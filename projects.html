@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Abel Tiruneh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #111111; --primary-color: #00aaff; --secondary-color: #1a1a1a;
+            --text-color: #e0e0e0; --text-muted: #888888; --border-color: #2a2a2a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; }
+        h1, h2 { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--text-color); text-align: center; }
+        h1 { font-size: 3.5rem; margin-top: 100px; } h1 span { color: var(--primary-color); }
+        h2 { font-size: 2.5rem; margin-top: 4rem; margin-bottom: 2rem; } h2 span { color: var(--primary-color); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .btn { display: inline-block; padding: 0.8rem 2rem; background: var(--primary-color); color: #fff; text-decoration: none; border-radius: 5px; font-weight: 600; transition: background 0.3s, transform 0.3s; }
+        .btn:hover { background: #0088cc; transform: translateY(-3px); }
+        .header-nav { position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 0; background: rgba(17, 17, 17, 0.8); backdrop-filter: blur(10px); z-index: 1000; text-align: center; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .project-card { background: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+        .project-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .project-info { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .project-info h3 { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0.5rem; }
+        .project-info p { margin-bottom: 1rem; flex-grow: 1; font-size: 0.95rem; }
+        .project-tech-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .project-tech-list span { background-color: var(--border-color); color: var(--text-muted); padding: 5px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: 600; }
+        .project-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: auto; }
+        .footer { text-align: center; padding: 2rem 0; background: var(--secondary-color); margin-top: 6rem; border-top: 1px solid var(--border-color); }
+        @media (max-width: 768px) { h1 { font-size: 2.8rem; } h2 { font-size: 2.2rem; } }
+    </style>
+</head>
+<body>
+    <header class="header-nav"><a href="index.html" class="btn">← Back to Home</a></header>
+    <main class="container">
+        <h1>All My <span>Projects</span></h1>
+        <section id="web-projects">
+            <h2>Web <span>Development</span></h2>
+            <div id="web-projects-grid" class="projects-grid"></div>
+        </section>
+        <section id="game-projects">
+            <h2>Game <span>Development</span></h2>
+            <div id="game-projects-grid" class="projects-grid"></div>
+        </section>
+    </main>
+    <footer class="footer"><p>© 2025 Abel Tiruneh. All Rights Reserved.</p></footer>
+    <script>
+  // === DATABASE OF YOUR PROJECTS (Easy to Edit) ===
+        const allProjects = [
+            // --- PROJECT 1 ---
+            {
+                category: 'web',
+                image: 'https://via.placeholder.com/600x400/1a1a1a/00aaff?text=E-commerce+Platform',
+                title: 'E-Commerce Platform',
+                description: 'A full-featured, responsive e-commerce site using the MERN stack with payment gateway integration and an admin dashboard.',
+                tech: ['React', 'Node.js', 'MongoDB'],
+                liveLink: '#',
+                sourceLink: '#'
+            },
+            // --- PROJECT 2 ---
+            {
+                category: 'game',
+                image: 'https://via.placeholder.com/600x400/1a1a1a/00aaff?text=Pixel+Adventure+RPG',
+                title: 'Pixel Adventure RPG',
+                description: 'A 2D RPG in Godot with a tile-based world, quest system, and turn-based combat.',
+                tech: ['Godot Engine', 'GDScript'],
+                liveLink: '#',
+                sourceLink: '#'
+            },
+            // --- PROJECT 3 ---
+            {
+                category: 'web',
+                image: 'https://via.placeholder.com/600x400/1a1a1a/00aaff?text=Task+Manager+App',
+                title: 'Task Manager App',
+                description: 'A sleek task management application. Users can create projects, add tasks with deadlines, and track progress.',
+                tech: ['React', 'Firebase', 'CSS3'],
+                liveLink: '#',
+                sourceLink: '#'
+            },
+            // --- PROJECT 4 ---
+            {
+                category: 'game',
+                image: 'https://via.placeholder.com/600x400/1a1a1a/00aaff?text=Galaxy+Shooter',
+                title: 'Galaxy Shooter',
+                description: 'A classic top-down arcade space shooter featuring wave-based enemies, power-ups, and a high-score system.',
+                tech: ['Godot Engine', 'GDScript'],
+                liveLink: '#',
+                sourceLink: '#'
+            }
+            // To add a new project, copy a block from { to }, paste it here, and change the details.
+        ];
+        document.addEventListener('DOMContentLoaded', () => {
+            const webGrid = document.getElementById('web-projects-grid');
+            const gameGrid = document.getElementById('game-projects-grid');
+
+            allProjects.forEach(project => {
+                const techHtml = project.tech.map(t => `<span>${t}</span>`).join('');
+                const projectCardHtml = `
+                    <div class="project-card">
+                        <img src="${project.image}" alt="${project.title}">
+                        <div class="project-info">
+                            <h3>${project.title}</h3>
+                            <p>${project.description}</p>
+                            <div class="project-tech-list">${techHtml}</div>
+                            <div class="project-links">
+                                <a href="${project.liveLink}" class="btn" target="_blank" rel="noopener noreferrer">View Live</a>
+                                <a href="${project.sourceLink}" class="btn" target="_blank" rel="noopener noreferrer">Source Code</a>
+                            </div>
+                        </div>
+                    </div>`;
+                if (project.category === 'web') { webGrid.innerHTML += projectCardHtml; } 
+                else if (project.category === 'game') { gameGrid.innerHTML += projectCardHtml; }
+            });
+        });
+    </script>
+</body>
+</html>

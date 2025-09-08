@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abel Tiruneh | Full-Stack & Game Developer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Devicon & Font Awesome for new icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- CSS STYLES - MERGED & UPDATED -->
+    <style>
+        :root {
+            --bg-color: #111111;
+            --primary-color: #00aaff;
+            --secondary-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --text-muted: #888888;
+            --border-color: #2a2a2a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+
+        /* --- Header / Navigation (Your Style) --- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 0;
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--text-color); text-decoration: none; }
+        .logo span { color: var(--primary-color); }
+        .nav-links { list-style: none; display: flex; }
+        .nav-links li { margin-left: 2rem; }
+        .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 400; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* --- Hero Section (Your Style + My Scroll Animation) --- */
+        #hero-wrapper {
+            height: 300vh; /* This enables the scroll animation */
+            position: relative;
+        }
+        #hero {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; position: sticky; top: 0; overflow: hidden;
+        }
+        #bg-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .hero-content { position: relative; z-index: 2; padding: 0 1rem; }
+        .hero-content h1 { font-size: 4rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .hero-content h1 span { color: var(--primary-color); }
+        
+        .hero-roles {
+            position: relative;
+            height: 50px; /* Fixed height for the text */
+            margin-top: 1rem;
+        }
+        .hero-roles p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .hero-roles p.visible { opacity: 1; transform: translateY(0); }
+        .hero-roles p.hidden-up { opacity: 0; transform: translateY(-20px); }
+
+
+        /* --- General Section Styling (Your Style) --- */
+        section {
+            padding: 6rem 0; opacity: 0; transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        section.visible { opacity: 1; transform: translateY(0); }
+        .section-title {
+            text-align: center; font-size: 2.5rem; margin-bottom: 3rem; font-weight: 600;
+        }
+        .section-title span { color: var(--primary-color); }
+        
+        /* --- About Section (Your Style) --- */
+        #about .about-container { display: flex; gap: 3rem; align-items: center; }
+        .about-image { flex-shrink: 0; width: 250px; height: 250px; }
+        .about-image img {
+            width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 5px solid var(--border-color);
+        }
+        .about-content { flex: 1; }
+        .about-content h3 { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 1rem; }
+        .about-content p { margin-bottom: 1.5rem; text-align: justify; }
+        .quick-facts { list-style: none; margin-bottom: 2rem; }
+        .quick-facts li { margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; }
+        .quick-facts li::before { content: '›'; color: var(--primary-color); font-weight: bold; position: absolute; left: 0; }
+        .btn {
+            display: inline-block; padding: 0.8rem 2rem; background: var(--primary-color);
+            color: #fff; text-decoration: none; border-radius: 5px; font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .btn:hover { background: #0088cc; transform: translateY(-3px); }
+
+        /* --- Tech & Tools Section (My Layout, Your Style) --- */
+        .skills-category {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .skills-category h3 {
+            font-size: 1.5rem; color: var(--primary-color);
+            margin-bottom: 1.5rem; padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color); display: inline-block;
+        }
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1.5rem;
+        }
+   /* --- FIX STARTS HERE --- */
+        .skill-item {
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s, border-color 0.3s;
+            border: 1px solid transparent;
+            /* Added flexbox for perfect centering */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        /* --- FIX ENDS HERE --- */
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+        .skill-item i {
+            font-size: 3.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .skill-item span {
+            font-weight: 400; font-size: 0.9rem;
+        }
+        
+        /* --- Projects Section (My Layout, Your Style) --- */
+        .projects-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; }
+        .project-entry { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; align-items: center; }
+        .project-entry:nth-child(even) .project-image { order: 2; }
+        .project-image img { width: 100%; border-radius: 10px; border: 1px solid var(--border-color); transition: transform 0.4s; }
+        .project-image a:hover img { transform: scale(1.05); }
+        .project-description h3 { font-size: 1.8rem; color: var(--primary-color); }
+        .project-description p { background: var(--secondary-color); padding: 1rem; border-radius: 5px; margin-bottom: 1rem; }
+        .project-tech-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .project-tech-list span { background-color: var(--border-color); color: var(--text-muted); padding: 5px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: 600; }
+        .project-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .centered-btn-container { text-align: center; margin-top: 3rem; }
+
+        /* --- Contact Section (My Layout, Your Style) --- */
+        #contact { text-align: center; }
+        #contact p { max-width: 600px; margin: 0 auto 2.5rem auto; font-size: 1.1rem; }
+        .contact-info { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+        .contact-item { font-size: 1.2rem; }
+        .contact-item a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+        .contact-item a:hover { color: var(--primary-color); }
+        .contact-item i { margin-right: 10px; color: var(--primary-color); }
+        .social-icons { display: flex; justify-content: center; gap: 2rem; }
+        .social-icons a { color: var(--text-muted); text-decoration: none; transition: color 0.3s, transform 0.3s; }
+        .social-icons a:hover { color: var(--primary-color); transform: translateY(-5px); }
+        .social-icons svg, .social-icons i { font-size: 32px; height: 32px; }
+
+        /* --- Footer (Your Style) --- */
+        footer { text-align: center; padding: 2rem 0; background: var(--secondary-color); margin-top: 4rem; border-top: 1px solid var(--border-color); }
+        
+        /* --- Responsive Design (Merged) --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-roles p { font-size: 1.2rem; }
+            .section-title { font-size: 2.2rem; }
+            #about .about-container { flex-direction: column; align-items: center; text-align: center; }
+            .about-image { width: 200px; height: 200px; margin-bottom: 2rem; }
+            .about-content p { text-align: center; }
+            .quick-facts { text-align: left; }
+            .project-entry { grid-template-columns: 1fr; }
+            .project-entry:nth-child(even) .project-image { order: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="#hero-wrapper" class="logo">Abel<span>.</span>T</a>
+            <nav><ul class="nav-links"><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="hero-wrapper">
+            <section id="hero">
+                <canvas id="bg-canvas"></canvas>
+                <div class="hero-content">
+                    <h1>Abel Tiruneh<span>.</span></h1>
+                    <div class="hero-roles">
+                        <p class="role-text">I'm a Full-Stack Developer.</p>
+                        <p class="role-text">a Game Developer.</p>
+                        <p class="role-text">a Computer Science Student.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="about" class="container">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="about-container">
+                <div class="about-image"><img src="assets/img/a.jpg" alt="Abel Tiruneh"></div>
+                <div class="about-content">
+                    <h3>Bridging Code and Creativity</h3>
+                    <p>As a passionate Full-Stack Developer and Game Developer, I thrive on turning complex problems into elegant, interactive solutions. My journey as a Computer Science student at Infolink University College has equipped me with a robust technical foundation, which I combine with a creative drive to build immersive web applications and engaging game worlds. I'm not just building projects; I'm crafting experiences.</p>
+                    <ul class="quick-facts"><li><strong>Name:</strong> Abel Tiruneh</li><li><strong>Location:</strong> Ethiopia</li><li><strong>University:</strong> Infolink University College</li><li><strong>Focus:</strong> Full-Stack Dev & Game Dev</li></ul>
+                    <a href="#" class="btn" download>Download CV</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <h2 class="section-title">Tech & <span>Tools</span></h2>
+            <div class="skills-category">
+                <h3>Languages & Frameworks</h3>
+                <div class="skills-grid"><div class="skill-item"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div><div class="skill-item"><i class="devicon-python-plain"></i><span>Python</span></div><div class="skill-item"><i class="devicon-react-original"></i><span>React</span></div><div class="skill-item"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div><div class="skill-item"><i class="devicon-html5-plain"></i><span>HTML5</span></div><div class="skill-item"><i class="devicon-css3-plain"></i><span>CSS3</span></div></div>
+            </div>
+            <div class="skills-category">
+                <h3>Databases</h3>
+                <div class="skills-grid"><div class="skill-item"><i class="devicon-mongodb-plain"></i><span>MongoDB</span></div><div class="skill-item"><i class="devicon-mysql-plain"></i><span>MySQL</span></div><div class="skill-item"><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></div></div>
+            </div>
+            <div class="skills-category">
+                <h3>Engines & Tools</h3>
+                <div class="skills-grid"><div class="skill-item"><i class="devicon-godot-plain"></i><span>Godot Engine</span></div><div class="skill-item"><i class="devicon-git-plain"></i><span>Git</span></div><div class="skill-item"><i class="devicon-github-original"></i><span>GitHub</span></div></div>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2 class="section-title">Featured <span>Projects</span></h2>
+            <div class="projects-grid">
+                <div class="project-entry">
+                    <div class="project-image"><a href="#"><img src="https://via.placeholder.com/600x400/1a1a1a/00aaff?text=E-commerce+Platform" alt="Project 1 Screenshot"></a></div>
+                    <div class="project-description">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-featured, responsive e-commerce website built from the ground up with the MERN stack. Includes user authentication, product catalog, and more.</p>
+                        <div class="project-tech-list"><span>React</span> <span>Node.js</span> <span>MongoDB</span></div>
+                        <div class="project-links"><a href="#" class="btn">Live Demo</a> <a href="#" class="btn">Source Code</a></div>
+                    </div>
+                </div>
+                <div class="project-entry">
+                    <div class="project-image"><a href="#"><img src="https://via.placeholder.com/600x400/1a1a1a/00aaff?text=Pixel+Adventure+RPG" alt="Project 2 Screenshot"></a></div>
+                    <div class="project-description">
+                        <h3>Pixel Adventure RPG</h3>
+                        <p>A 2D role-playing game developed in the Godot Engine, featuring a tile-based world, quest system, and turn-based combat mechanics.</p>
+                        <div class="project-tech-list"><span>Godot Engine</span> <span>GDScript</span></div>
+                        <div class="project-links"><a href="#" class="btn">View on Itch.io</a> <a href="#" class="btn">Source Code</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="centered-btn-container"><a href="projects.html" class="btn">View All Projects</a></div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2 class="section-title">Get In <span>Touch</span></h2>
+            <p>I'm actively seeking new opportunities and collaborations. If you have a project in mind or just want to connect, my inbox is always open!</p>
+            <div class="contact-info">
+                <div class="contact-item"><a href="mailto:abeltiruneh2468@gmail.com"><i class="fas fa-envelope"></i> abeltiruneh2468@gmail.com</a></div>
+                <div class="contact-item"><a href="tel:0967472569"><i class="fas fa-phone"></i> 0967472569</a></div>
+            </div>
+            <div class="social-icons">
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer><div class="container"><p>© 2025 Abel Tiruneh. All Rights Reserved.</p></div></footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // --- 3D HERO ANIMATION SCRIPT (Your Code) ---
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg-canvas'), alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.position.setZ(30);
+        const geometry = new THREE.IcosahedronGeometry(10, 1);
+        const material = new THREE.MeshStandardMaterial({ color: 0x00aaff, wireframe: true });
+        const shape = new THREE.Mesh(geometry, material);
+        scene.add(shape);
+        const particlesGeometry = new THREE.BufferGeometry;
+        const particlesCount = 5000;
+        const posArray = new Float32Array(particlesCount * 3);
+        for(let i = 0; i < particlesCount * 3; i++) { posArray[i] = (Math.random() - 0.5) * (Math.random() * 5) * 100; }
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMaterial = new THREE.PointsMaterial({ size: 0.02, color: 0x00aaff });
+        const particleMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particleMesh);
+        const pointLight = new THREE.PointLight(0xffffff, 1.2);
+        pointLight.position.set(5, 15, 15);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+        scene.add(pointLight, ambientLight);
+        function animate() { requestAnimationFrame(animate); shape.rotation.x += 0.001; shape.rotation.y += 0.002; particleMesh.rotation.y += 0.0005; renderer.render(scene, camera); }
+        animate();
+        window.addEventListener('resize', () => { renderer.setSize(window.innerWidth, window.innerHeight); camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); });
+
+        // --- SCROLL REVEAL ANIMATION SCRIPT (Your Code) ---
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => { observer.observe(section); });
+
+        // --- HERO SCROLL TEXT ANIMATION (My Logic) ---
+        const heroWrapper = document.getElementById('hero-wrapper');
+        const roles = document.querySelectorAll('.role-text');
+        roles[0].classList.add('visible'); // Show the first role initially
+        window.addEventListener('scroll', () => {
+            const scrollProgress = (window.scrollY - heroWrapper.offsetTop) / (heroWrapper.offsetHeight - window.innerHeight);
+            roles.forEach(role => role.classList.remove('visible', 'hidden-up'));
+            if (scrollProgress >= 0 && scrollProgress < 0.33) { roles[0].classList.add('visible'); } 
+            else if (scrollProgress >= 0.33 && scrollProgress < 0.66) { roles[0].classList.add('hidden-up'); roles[1].classList.add('visible'); } 
+            else if (scrollProgress >= 0.66 && scrollProgress < 1) { roles[1].classList.add('hidden-up'); roles[2].classList.add('visible'); } 
+            else if (scrollProgress >= 1) { roles[2].classList.add('hidden-up'); } 
+            else { roles[0].classList.add('visible'); }
+        });
+    </script>
+</body>
+</html>
