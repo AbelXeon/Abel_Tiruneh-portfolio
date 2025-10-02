@@ -1,76 +1,35 @@
-# Personal Portfolio Website
+# Abel Tiruneh's Portfolio
 
-![Personal Portfolio Showcase](https://via.placeholder.com/1200x600/111111/00aaff?text=Abel%20Tiruneh%20//%20Developer%20Portfolio)
+This is the source code for my personal portfolio website, a modern and interactive platform designed to showcase my skills and projects as a Full-Stack and Game Developer. The site is built with pure HTML, CSS, and JavaScript, featuring a sleek, responsive design and dynamic animations.
 
-This repository contains the source code for my personal portfolio. It's a two-page website designed to showcase my skills and projects in web and game development, built with a focus on a clean aesthetic and a memorable user experience.
+## Key Features
 
-**➡️ Live Version:** **[portfolio.abelt.com](https://[YOUR_LIVE_WEBSITE_LINK_HERE])**
+- **Interactive 3D Hero Section:** A captivating animated 3D shape and particle system created with `three.js`.
+- **Dynamic Role Text:** A scrolling text animation that cycles through my different development roles.
+- **Smooth Scroll Animations:** Sections of the website fade in smoothly as you scroll down the page.
+- **Project Showcase:** A dedicated section for my featured projects, with links to live demos and source code.
+- **Categorized Project Pages:** A separate page to view all of my projects, neatly categorized into Web and Game Development.
+- **Responsive Design:** The website is fully responsive and works seamlessly across all devices.
 
----
+## Technologies Used
 
-## Features
+- **HTML5**
+- **CSS3**
+- **JavaScript (ES6+)**
+- **three.js:** For the 3D hero animation.
+- **Devicon & Font Awesome:** For icons.
 
--   **3D Animated Hero:** The homepage greets visitors with a dynamic 3D animation powered by Three.js.
--   **Scroll-Based Animations:** Content gracefully fades in on the main page as the user scrolls, and the hero text transitions through my different roles.
--   **Dedicated Projects Page:** A main landing page (`index.html`) provides a quick overview, while a separate `projects.html` page showcases my entire body of work.
--   **JavaScript-Powered Grid:** The projects page is generated dynamically from a simple JavaScript array, automatically sorting projects into "Web Development" and "Game Development" categories.
--   **Fully Responsive:** The layout is optimized to ensure a seamless experience on all devices, from mobile phones to large desktop screens.
+## Local Setup
 
----
+To run this project locally, follow these steps:
 
-## Tech Stack
-
-This project was built using core web technologies and a key library for the 3D graphics.
-
--   🌐 **HTML5 & CSS3:** For the structure and styling of the website.
--   💻 **JavaScript (ES6+):** For all interactivity, animations, and dynamic project generation.
--   🎨 **Three.js:** The 3D JavaScript library used to create the animated hero section.
-
----
-
-## How to Use
-
-### Running Locally
-
-No special tools are required. You can run this website locally by following these steps:
-
-1.  Clone this repository to your machine:
-    ```bash
-    git clone https://github.com/[YOUR_USERNAME]/[YOUR_REPOSITORY_NAME].git
-    ```
-2.  Navigate into the cloned folder.
-3.  Open the `index.html` file in any web browser.
-
-### Customizing the Content
-
-The portfolio is designed for easy editing.
-
-1.  **Editing Personal Info:**
-    -   All personal details like the "About Me" section, skills, and contact links can be changed by editing the HTML in the `index.html` file.
-
-2.  **Adding or Changing Projects:**
-    -   Open the `projects.html` file.
-    -   Scroll to the bottom to find the `<script>` tag.
-    -   Inside, you will find the `allProjects` array.
-    -   To add a new project, simply copy an existing project object, paste it at the end of the list, and change the details (title, image, description, etc.).
-
-    **Example Project Object:**
-    ```javascript
-    {
-        category: 'web', // or 'game'
-        image: 'https://your-image-url.com/project.png',
-        title: 'My New Project',
-        description: 'A brief and interesting description of what this project does.',
-        tech: ['React', 'Node.js'],
-        liveLink: '#',
-        sourceLink: '#'
-    }
-    ```
-
----
-
-## Connect with Me
-
-I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious team.
-
--   📧 **Email:** `abeltiruneh2468@gmail.com`
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   ```
+2. **Navigate to the project directory:**
+   ```bash
+   cd your-repo-name
+   ```
+3. **Open `index.html` in your browser:**
+   - You can do this by simply double-clicking the file or by using a local server extension in your code editor (like Live Server for VS Code).
