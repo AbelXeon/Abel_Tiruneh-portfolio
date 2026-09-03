@@ -871,48 +871,9 @@
         <div>© 2026 Abel Tiruneh. All Rights Reserved.</div>
     </footer>
 
+    
     <!-- Interactive Scripts with Robust Hamburger Menu Handling -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.getElementById('menu-toggle');
-            const navLinks = document.getElementById('nav-links');
-            const body = document.body;
-
-            function toggleMenu() {
-                const isOpen = navLinks.classList.toggle('active');
-                menuToggle.classList.toggle('active', isOpen);
-                menuToggle.setAttribute('aria-expanded', isOpen);
-                body.classList.toggle('menu-open', isOpen);
-            }
-
-            function closeMenu() {
-                navLinks.classList.remove('active');
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                body.classList.remove('menu-open');
-            }
-
-            if (menuToggle && navLinks) {
-                // Click hamburger button to toggle
-                menuToggle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    toggleMenu();
-                });
-
-                // Close menu when clicking any nav anchor link
-                navLinks.querySelectorAll('a').forEach(anchor => {
-                    anchor.addEventListener('click', () => {
-                        closeMenu();
-                    });
-                });
-
-                // Close menu when tapping outside of it
-                document.addEventListener('click', (e) => {
-                    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                        closeMenu();
-                    }
-                });
-            }
 
             // Scroll Animation Observer Setup
             const revealElements = document.querySelectorAll('.reveal');
