@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('active');
     });
 
-    // Close mobile menu overlay on selection
     navAnchors.forEach(anchor => {
         anchor.addEventListener('click', () => {
             menuToggle.classList.remove('active');
