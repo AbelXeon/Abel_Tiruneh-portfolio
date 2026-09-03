@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Render featured projects on the Home page (works for 1 project or many,
     const projectsGrid = document.getElementById('projects-grid');
     if (projectsGrid && typeof projectsData !== 'undefined') {
         const featured = projectsData.filter(p => p.featured);
