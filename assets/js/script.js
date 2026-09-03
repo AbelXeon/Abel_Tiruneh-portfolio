@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Render featured projects on the Home page (works for 1 project or many,
-    // grid stays centered either way — full list always lives on projects.html)
     const projectsGrid = document.getElementById('projects-grid');
     if (projectsGrid && typeof projectsData !== 'undefined') {
         const featured = projectsData.filter(p => p.featured);
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const observerOptions = {
         root: null,
-        threshold: 0.15, // Elements activate once 15% visible
+        threshold: 0.15, 
         rootMargin: "0px"
     };
 
