@@ -28,7 +28,7 @@ const projectsData = [{
     {
         category: 'web',
         featured: true,
-        title: 'VStudent-Teacher Web App',
+        title: 'Student-Teacher Web App',
         description: 'A web application that connects students with teachers for learning, scheduling, and communication.',
         image: 'assets/img/tutorlink.png',
         link: 'https://tutorlink-km9e.onrender.com'
