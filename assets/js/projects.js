@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
-    // Game projects - show real cards if any exist, otherwise a coming-soon placeholder
     if (gameGrid) {
         if (gameProjects.length > 0) {
             gameGrid.innerHTML = gameProjects.map(project => `
